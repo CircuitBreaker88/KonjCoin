@@ -34,7 +34,47 @@ The art installations The distribution of KONJUNGATE to international Art Instit
 
 People will be able to store, spend, exchange and later borrow practically any Cryptocurrency in the same way as any other currency, but in a quicker, cheaper and more secure way than it is possible now in any traditional bank. KONJ is a future of Art Founding System with limitless opportunities.
 
-## Coin Specifications
+## LINKS
+
+Official Website:<br/>
+https://www.konjungate.net/
+
+Official Mining Pool:<br/>
+https://pool.konjungate.net/<br/>
+https://ahamay.net/
+
+Block Explorer:
+http://discover.konjungate.net/<br/>
+
+Bitcoin Talk announcment:
+https://bitcointalk.org/index.php?topic=5148524.msg51263942#msg51263942<br/>
+
+---------------->>>-----<<<<<<---------------------
+
+(So called) Social Media Links:
+
+Telegram: https://t.me/joinchat/CZxxC03HTpvdGDWlXg0tgQ 
+
+Facebook: https://www.facebook.com/konjungate/ 
+
+Twitter: https://twitter.com/konjungate
+
+YouTube: https://www.youtube.com/channel/UCnm-eA9EGNwSHu3KKzkm8Zg
+
+---------------->>>-----<<<<<<---------------------
+
+EXCHANGES
+
+Altmarkets:
+https://altmarkets.io/trading/konjbtc
+
+Ihost
+https://ihostmn.com/buysell.php?market=KONJBTC
+
+
+Zeon: 
+https://exchange.zeonhexalgo.fun/market/59 (KONJ/LTC)<br/>
+https://exchange.zeonhexalgo.fun/market/60 (KON/BTC)
 
 
 
