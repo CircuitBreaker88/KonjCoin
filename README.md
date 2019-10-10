@@ -1,7 +1,9 @@
 # Konjungate Core v1.0.1
 
 Name: Konjungate
+
 Ticker: KONJ
+
 Type: Hybrid, POS / POW / Masternodes
 Algorithm: neoscrypt
 Total Coin Supply: 21 billion
