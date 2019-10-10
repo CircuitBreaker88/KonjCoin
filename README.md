@@ -1,26 +1,23 @@
 # Konjungate Core v1.0.1
 
-Name: Konjungate
+Name: Konjungate<br/>
+Ticker: KONJ<br/>
+Type: Hybrid, POS / POW / Masternodes<br/>
+Algorithm: neoscrypt<br/>
+Total Coin Supply: 21 billion<br/>
+Block Reward: 1000 KONJ<br/>
 
-Ticker: KONJ
+Reward Distribution:<br/>
+1000 KONJUNGATE / Block. shared as follows:<br/>
+POW: 250 KONJ (no charity fee taken from POW)<br/>
+POS: 195 KONJ<br/>
+MN: 455 KONJ<br/>
+Charity: 100 KON<br/>
 
-Type: Hybrid, POS / POW / Masternodes
-Algorithm: neoscrypt
-Total Coin Supply: 21 billion
-Block Reward: 1000 KONJ
-
-
-Reward Distribution:
-1000 KONJUNGATE / Block. shared as follows:
-POW: 250 KONJ (no charity fee taken from POW)
-POS: 195 KONJ
-MN: 455 KONJ
-Charity: 100 KON
-
-Block Time: 2 Min.
-Masternode Collateral: 600.000 KONJ
-Block Size: 1MB
-Premine: 409.000.000 KONJ for SWAP/Charity- and Developer Fund
+Block Time: 2 Min.<br/>
+Masternode Collateral: 600.000 KONJ<br/>
+Block Size: 1MB<br/>
+Premine: 409.000.000 KONJ for SWAP/Charity- and Developer Fund<br/>
 
 https://www.konjungate.net
 
