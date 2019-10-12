@@ -65,6 +65,12 @@ YouTube: https://www.youtube.com/channel/UCnm-eA9EGNwSHu3KKzkm8Zg
 
 EXCHANGES
 
+TRADESATOSHI
+https://tradesatoshi.com/Exchange/?market=KONJ_BTC
+https://tradesatoshi.com/Exchange/?market=KONJ_USDT
+https://tradesatoshi.com/Exchange/?market=KONJ_ETH
+https://tradesatoshi.com/Exchange/?market=KONJ_DOGE
+
 Altmarkets:
 https://altmarkets.io/trading/konjbtc
 
