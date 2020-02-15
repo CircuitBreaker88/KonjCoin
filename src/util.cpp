@@ -1212,7 +1212,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL) {
     WriteConfigFile(configFile);
-    fclose(configFile);
+    //fclose(configFile);
     streamConfig.open(GetConfigFile());
   }
   //return; // Nothing to read, so just return
