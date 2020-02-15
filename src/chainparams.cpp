@@ -103,7 +103,7 @@ public:
 
 		nPoolMaxTransactions = 3;
 		strDarksendPoolDummyAddress = "KmbXX5yL5dd8ghPENXcHdt6aQwBvLZitrv";
-		nLastPOWBlock = nForkTwo + 200; //No Last Block **Remove nLastPOWBlock
+		nLastPOWBlock = nForkTwo + 200; // Fork Height Number 2 Active on block 245k
 		nPOSStartBlock = 1;
 	}
 

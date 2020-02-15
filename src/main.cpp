@@ -1573,9 +1573,9 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
         else
         {
             // Alternate PoW and PoS Blocks
-            nTargetSpacing = 2 * TARGET_SPACING;
+            nTargetSpacing = TARGET_SPACING;
         }
-        nTargetSpacing = 2 * TARGET_SPACING;
+        nTargetSpacing = TARGET_SPACING;
 
         nTargetTimespan = nTargetSpacing * nIntervalLong;
 
