@@ -1204,19 +1204,21 @@ void WriteConfigFile(FILE* configFile)
     ReadConfigFile(mapArgs, mapMultiArgs);
 
 void ReadConfigFile(map<string, string>& mapSettingsRet,
-                    map<string, vector<string> >& mapMultiSettingsRet)
-{
+                    map<string, vector<string> >& mapMultiSettingsRet) {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()){
         // Create empty Konjungate.conf if it does not excist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL) {
     WriteConfigFile(configFile);
-    //fclose(configFile);
-    streamConfig.open(GetConfigFile());
-  }
-  //return; // Nothing to read, so just return
-}
+    // fclose(configFile);
+           printf("WriteConfigFile() Konjungate.conf Setup Successfully!");
+          ReadConfigFile(mapSettingsRet, mapMultiSettingsRet);
+         } else {
+             printf("WriteConfigFile() konjgate.conf file could not be created");
+             return; // Nothing to read, so just return
+         }
+     }
 
     set<string> setOptions;
     setOptions.insert("*");
