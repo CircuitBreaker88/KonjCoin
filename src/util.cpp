@@ -1202,6 +1202,7 @@ void WriteConfigFile(FILE* configFile)
     fputs ("addnode=77.78.204.210:21750\n", configFile);
     fclose(configFile);
     ReadConfigFile(mapArgs, mapMultiArgs);
+  }
 
 void ReadConfigFile(map<string, string>& mapSettingsRet,
                     map<string, vector<string> >& mapMultiSettingsRet)
@@ -1212,11 +1213,11 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL) {
     WriteConfigFile(configFile);
-            fclose(configFile);
+          //  fclose(configFile);
            printf("WriteConfigFile() Konjungate.conf Setup Successfully!");
           ReadConfigFile(mapSettingsRet, mapMultiSettingsRet);
          } else {
-             printf("WriteConfigFile() konjgate.conf file could not be created");
+             printf("WriteConfigFile() konjungate.conf file could not be created");
              return; // Nothing to read, so just return
          }
      }
