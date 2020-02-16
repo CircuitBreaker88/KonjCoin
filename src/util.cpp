@@ -1213,14 +1213,11 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL) {
     WriteConfigFile(configFile);
-          //  fclose(configFile);
-           printf("WriteConfigFile() Konjungate.conf Setup Successfully!");
-          ReadConfigFile(mapSettingsRet, mapMultiSettingsRet);
-         } else {
-             printf("WriteConfigFile() konjungate.conf file could not be created");
-             return; // Nothing to read, so just return
-         }
-     }
+  //  fclose(configFile);
+    streamConfig.open(GetConfigFile());
+  }
+  //return; // Nothing to read, so just return
+}
 
     set<string> setOptions;
     setOptions.insert("*");
