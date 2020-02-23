@@ -66,7 +66,7 @@ YouTube: https://www.youtube.com/channel/UCnm-eA9EGNwSHu3KKzkm8Zg
 EXCHANGES
 
 CREX24:
-https://crex24.com/exchange/KONJ-BTC
+https://crex24.com/exchange/KONJ-BTC<br/>
 https://crex24.com/exchange/KONJ-ETH
 
 Altmarkets:
