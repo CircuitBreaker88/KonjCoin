@@ -1460,6 +1460,46 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
     {
       nSubsidy = 250 * COIN;
     }
+    else if(nHeight < 436600)
+    {
+      nSubsidy = 212.5 * COIN;
+    }
+    else if(nHeight < 696200)
+    {
+      nSubsidy = 180.625 * COIN;
+    }
+    else if(nHeight < 955800)
+    {
+      nSubsidy = 153.53125 * COIN;
+    }
+    else if(nHeight < 1215400)
+    {
+      nSubsidy = 130.5015625 * COIN;
+    }
+    else if(nHeight < 1475000)
+    {
+      nSubsidy = 110.926328125 * COIN;
+    }
+    else if(nHeight < 1734600)
+    {
+      nSubsidy = 94.28737890625 * COIN;
+    }
+    else if(nHeight < 1994200)
+    {
+      nSubsidy = 80.1442720703125 * COIN;
+    }
+    else if(nHeight < 2253800)
+    {
+      nSubsidy = 68.12263125976563 * COIN;
+    }
+    else if(nHeight < 2513400)
+    {
+      nSubsidy = 57.90423657080078 * COIN;
+    }
+    else if(nHeight < 2773000)
+    {
+      nSubsidy = 49.21860108518066 * COIN;
+    }
     return nSubsidy + nFees;
 
 }
@@ -1481,6 +1521,46 @@ int64_t GetProofOfStakeReward(int nHeight, int64_t nCoinAge, int64_t nFees)
     else if(nHeight < 10000)
     {
       nSubsidy = 650 * COIN;
+    }
+    else if(nHeight < 436600)
+    {
+      nSubsidy = 422.5 * COIN;
+    }
+    else if(nHeight < 696200)
+    {
+      nSubsidy = 274.625 * COIN;
+    }
+    else if(nHeight < 955800)
+    {
+      nSubsidy = 178.50625 * COIN;
+    }
+    else if(nHeight < 1215400)
+    {
+      nSubsidy = 116.0290625 * COIN;
+    }
+    else if(nHeight < 1475000)
+    {
+      nSubsidy = 75.418890625 * COIN;
+    }
+    else if(nHeight < 1734600)
+    {
+      nSubsidy = 49.02227890625 * COIN;
+    }
+    else if(nHeight < 1994200)
+    {
+      nSubsidy = 31.8644812890625 * COIN;
+    }
+    else if(nHeight < 2253800)
+    {
+      nSubsidy = 20.71191283789063 * COIN;
+    }
+    else if(nHeight < 2513400)
+    {
+      nSubsidy = 13.46274334462891 * COIN;
+    }
+    else if(nHeight < 2773000)
+    {
+      nSubsidy = 8.750783174008789 * COIN;
     }
     return nSubsidy + nFees;
   }
@@ -1573,7 +1653,7 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
         else
         {
             // Alternate PoW and PoS Blocks
-            nTargetSpacing = TARGET_SPACING;
+            nTargetSpacing = 2 * TARGET_SPACING;
         }
         nTargetSpacing = TARGET_SPACING;
 
@@ -4948,7 +5028,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue)
     int64_t ret = blockValue * 70/100; // 70%
 
     if(nHeight >= GetForkHeightTwo())
-        ret = blockValue * 70/100; // 70% No Change
+        ret = blockValue * 55/100; // 55%
 
     return ret;
 }
