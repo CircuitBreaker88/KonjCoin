@@ -1615,16 +1615,18 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
 
         nTargetSpacing = TARGET_SPACING;
 
+        nTargetSpacing2 = TARGET_SPACING;
+
         nTargetTimespan = 10 * 60;
 
         int64 nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
 
-        if(nActualSpacing < 0) nActualSpacing = nTargetSpacing;
+        if(nActualSpacing < 0) nActualSpacing = nTargetSpacing2;
 
         bnNew.SetCompact(pindexPrev->nBits);
-        int64 nInterval = nTargetTimespan / nTargetSpacing;
-        bnNew *= ((nInterval - 1) * nTargetSpacing + nActualSpacing + nActualSpacing);
-        bnNew /= ((nInterval + 1) * nTargetSpacing);
+        int64 nInterval = nTargetTimespan / nTargetSpacing2;
+        bnNew *= ((nInterval - 1) * nTargetSpacing2 + nActualSpacing + nActualSpacing);
+        bnNew /= ((nInterval + 1) * nTargetSpacing2);
 
         if((bnNew <= 0) || (bnNew > bnTargetLimit)) bnNew = bnTargetLimit;
 
@@ -1655,9 +1657,9 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
             // Alternate PoW and PoS Blocks
             nTargetSpacing = 2 * TARGET_SPACING;
         }
-        nTargetSpacing = TARGET_SPACING;
-
-        nTargetTimespan = nTargetSpacing * nIntervalLong;
+        nTargetSpacing = 2 * TARGET_SPACING;
+        nTargetSpacing2 = TARGET_SPACING;
+        nTargetTimespan = nTargetSpacing2 * nIntervalLong;
 
         /* The short averaging window */
         const CBlockIndex *pindexShort = GetPrevBlockIndex(pindexPrev,
@@ -1672,10 +1674,10 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
         nActualTimespanLong = (int64)pindexPrev->nTime - (int64)pindexLong->nTime;
 
         /* Time warp protection */
-        nActualTimespanShort = max(nActualTimespanShort, (nTargetSpacing * nIntervalShort / 2));
-        nActualTimespanShort = min(nActualTimespanShort, (nTargetSpacing * nIntervalShort * 2));
-        nActualTimespanLong  = max(nActualTimespanLong,  (nTargetSpacing * nIntervalLong  / 2));
-        nActualTimespanLong  = min(nActualTimespanLong,  (nTargetSpacing * nIntervalLong  * 2));
+        nActualTimespanShort = max(nActualTimespanShort, (nTargetSpacing2 * nIntervalShort / 2));
+        nActualTimespanShort = min(nActualTimespanShort, (nTargetSpacing2 * nIntervalShort * 2));
+        nActualTimespanLong  = max(nActualTimespanLong,  (nTargetSpacing2 * nIntervalLong  / 2));
+        nActualTimespanLong  = min(nActualTimespanLong,  (nTargetSpacing2 * nIntervalLong  * 2));
 
         /* The average of both windows */
         nActualTimespanAvg = (nActualTimespanShort * (nIntervalLong / nIntervalShort) + nActualTimespanLong) / 2;

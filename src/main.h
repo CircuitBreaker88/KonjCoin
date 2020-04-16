@@ -107,8 +107,24 @@ const int GetMaxTransactionSigOps();
 
 const int GetMaxOrphanTransactionSize();
 
+static const int DEFAULT_PRIVATESEND_AMOUNT         = 600000;
+static const int DEFAULT_PRIVATESEND_AMOUNT_NEW     = 2560000;
 
-inline int64_t GetMNCollateral(int nHeight) { return 600000; }
+inline int64_t GetMNCollateral(int nHeight) { 
+  CAmount value;
+  if (GetHeight() < 328600){
+    return value == DEFAULT_PRIVATESEND_AMOUNT;
+
+} else {
+    if (value == DEFAULT_PRIVATESEND_AMOUNT) {
+        return true;
+    } else if (value == DEFAULT_PRIVATESEND_AMOUNT_NEW) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+}
 
 extern CScript COINBASE_FLAGS;
 extern CCriticalSection cs_main;
