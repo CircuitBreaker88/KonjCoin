@@ -1590,7 +1590,7 @@ const CBlockIndex *GetPrevBlockIndex(const CBlockIndex *pindex, uint nRange,
 
 unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfStake) {
     CBigNum bnTargetLimit, bnNew;
-    int64 nTargetSpacing, nTargetTimespan;
+    int64 nTargetSpacing2, nTargetTimespan;
 
     if(fProofOfStake) bnTargetLimit = bnProofOfStakeLimit;
     else bnTargetLimit = Params().ProofOfWorkLimit();
@@ -1613,7 +1613,7 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
 
         /* Legacy every block retargets of the PPC style */
 
-        nTargetSpacing = TARGET_SPACING;
+        //nTargetSpacing = TARGET_SPACING;
 
         nTargetSpacing2 = TARGET_SPACING;
 
@@ -1650,14 +1650,14 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
         if (nHeight >= Params().LastPOWBlock())
         {
             // Only PoS Blocks
-            nTargetSpacing = TARGET_SPACING;
+            nTargetSpacing2 = TARGET_SPACING;
         }
         else
         {
             // Alternate PoW and PoS Blocks
-            nTargetSpacing = 2 * TARGET_SPACING;
+            nTargetSpacing2 = 2 * TARGET_SPACING;
         }
-        nTargetSpacing = 2 * TARGET_SPACING;
+        //nTargetSpacing = 2 * TARGET_SPACING;
         nTargetSpacing2 = TARGET_SPACING;
         nTargetTimespan = nTargetSpacing2 * nIntervalLong;
 

@@ -110,9 +110,9 @@ const int GetMaxOrphanTransactionSize();
 static const int DEFAULT_PRIVATESEND_AMOUNT         = 600000;
 static const int DEFAULT_PRIVATESEND_AMOUNT_NEW     = 2560000;
 
-inline int64_t GetMNCollateral(int nHeight) { 
+inline int64_t GetMNCollateral(int nHeight) {
   CAmount value;
-  if (GetHeight() < 328600){
+  if (nBestHeight < GetForkHeightTwo()){
     return value == DEFAULT_PRIVATESEND_AMOUNT;
 
 } else {
