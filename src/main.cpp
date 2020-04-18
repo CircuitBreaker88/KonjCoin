@@ -1590,7 +1590,7 @@ const CBlockIndex *GetPrevBlockIndex(const CBlockIndex *pindex, uint nRange,
 
 unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfStake) {
     CBigNum bnTargetLimit, bnNew;
-    int64 nTargetSpacing2, nTargetTimespan;
+    int64 nTargetSpacing, nTargetTimespan;
 
     if(fProofOfStake) bnTargetLimit = bnProofOfStakeLimit;
     else bnTargetLimit = Params().ProofOfWorkLimit();
@@ -1613,20 +1613,18 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
 
         /* Legacy every block retargets of the PPC style */
 
-        //nTargetSpacing = TARGET_SPACING;
-
-        nTargetSpacing2 = TARGET_SPACING;
+        nTargetSpacing = TARGET_SPACING;
 
         nTargetTimespan = 10 * 60;
 
         int64 nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
 
-        if(nActualSpacing < 0) nActualSpacing = nTargetSpacing2;
+        if(nActualSpacing < 0) nActualSpacing = nTargetSpacing;
 
         bnNew.SetCompact(pindexPrev->nBits);
-        int64 nInterval = nTargetTimespan / nTargetSpacing2;
-        bnNew *= ((nInterval - 1) * nTargetSpacing2 + nActualSpacing + nActualSpacing);
-        bnNew /= ((nInterval + 1) * nTargetSpacing2);
+        int64 nInterval = nTargetTimespan / nTargetSpacing;
+        bnNew *= ((nInterval - 1) * nTargetSpacing + nActualSpacing + nActualSpacing);
+        bnNew /= ((nInterval + 1) * nTargetSpacing);
 
         if((bnNew <= 0) || (bnNew > bnTargetLimit)) bnNew = bnTargetLimit;
 
@@ -1650,16 +1648,15 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
         if (nHeight >= Params().LastPOWBlock())
         {
             // Only PoS Blocks
-            nTargetSpacing2 = TARGET_SPACING;
+            nTargetSpacing = TARGET_SPACING;
         }
         else
         {
             // Alternate PoW and PoS Blocks
-            nTargetSpacing2 = 2 * TARGET_SPACING;
+            nTargetSpacing = 2 * TARGET_SPACING;
         }
-        //nTargetSpacing = 2 * TARGET_SPACING;
-        nTargetSpacing2 = TARGET_SPACING;
-        nTargetTimespan = nTargetSpacing2 * nIntervalLong;
+        nTargetSpacing = 2 * TARGET_SPACING;
+        nTargetTimespan = nTargetSpacing * nIntervalLong;
 
         /* The short averaging window */
         const CBlockIndex *pindexShort = GetPrevBlockIndex(pindexPrev,
@@ -1674,10 +1671,10 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
         nActualTimespanLong = (int64)pindexPrev->nTime - (int64)pindexLong->nTime;
 
         /* Time warp protection */
-        nActualTimespanShort = max(nActualTimespanShort, (nTargetSpacing2 * nIntervalShort / 2));
-        nActualTimespanShort = min(nActualTimespanShort, (nTargetSpacing2 * nIntervalShort * 2));
-        nActualTimespanLong  = max(nActualTimespanLong,  (nTargetSpacing2 * nIntervalLong  / 2));
-        nActualTimespanLong  = min(nActualTimespanLong,  (nTargetSpacing2 * nIntervalLong  * 2));
+        nActualTimespanShort = max(nActualTimespanShort, (nTargetSpacing * nIntervalShort / 2));
+        nActualTimespanShort = min(nActualTimespanShort, (nTargetSpacing * nIntervalShort * 2));
+        nActualTimespanLong  = max(nActualTimespanLong,  (nTargetSpacing * nIntervalLong  / 2));
+        nActualTimespanLong  = min(nActualTimespanLong,  (nTargetSpacing * nIntervalLong  * 2));
 
         /* The average of both windows */
         nActualTimespanAvg = (nActualTimespanShort * (nIntervalLong / nIntervalShort) + nActualTimespanLong) / 2;
