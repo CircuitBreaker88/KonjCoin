@@ -1435,7 +1435,10 @@ void static PruneOrphanBlocks()
 bool fDevFee(int nHeight)
 {
   if (nHeight < 1) return false;
-  return (nHeight % 10080 < 1);}
+  return (nHeight % 10080 < 1);
+  if (nHeight > 587800) return false;
+  return (nHeight % 0 > 587800);
+}
 
 int64_t nDevFee = 2016000 * COIN;
 
@@ -1460,43 +1463,43 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
     {
       nSubsidy = 250 * COIN;
     }
-    else if(nHeight < 436600)
+    else if(nHeight < 328600)
     {
       nSubsidy = 212.5 * COIN;
     }
-    else if(nHeight < 696200)
+    else if(nHeight < 587800)
     {
       nSubsidy = 180.625 * COIN;
     }
-    else if(nHeight < 955800)
+    else if(nHeight < 847000)
     {
       nSubsidy = 153.53125 * COIN;
     }
-    else if(nHeight < 1215400)
+    else if(nHeight < 1106200)
     {
       nSubsidy = 130.5015625 * COIN;
     }
-    else if(nHeight < 1475000)
+    else if(nHeight < 1365400)
     {
       nSubsidy = 110.926328125 * COIN;
     }
-    else if(nHeight < 1734600)
+    else if(nHeight < 1624600)
     {
       nSubsidy = 94.28737890625 * COIN;
     }
-    else if(nHeight < 1994200)
+    else if(nHeight < 1883800)
     {
       nSubsidy = 80.1442720703125 * COIN;
     }
-    else if(nHeight < 2253800)
+    else if(nHeight < 2143000)
     {
       nSubsidy = 68.12263125976563 * COIN;
     }
-    else if(nHeight < 2513400)
+    else if(nHeight < 2402200)
     {
       nSubsidy = 57.90423657080078 * COIN;
     }
-    else if(nHeight < 2773000)
+    else if(nHeight < 2661400)
     {
       nSubsidy = 49.21860108518066 * COIN;
     }
@@ -1522,45 +1525,45 @@ int64_t GetProofOfStakeReward(int nHeight, int64_t nCoinAge, int64_t nFees)
     {
       nSubsidy = 650 * COIN;
     }
-    else if(nHeight < 436600)
+    else if(nHeight < 328600)
     {
-      nSubsidy = 422.5 * COIN;
+      nSubsidy = 552.5 * COIN;
     }
-    else if(nHeight < 696200)
+    else if(nHeight < 587800)
     {
-      nSubsidy = 274.625 * COIN;
+      nSubsidy = 469.625 * COIN;
     }
-    else if(nHeight < 955800)
+    else if(nHeight < 847000)
     {
-      nSubsidy = 178.50625 * COIN;
+      nSubsidy = 399.18125 * COIN;
     }
-    else if(nHeight < 1215400)
+    else if(nHeight < 1106200)
     {
-      nSubsidy = 116.0290625 * COIN;
+      nSubsidy = 339.3040625 * COIN;
     }
-    else if(nHeight < 1475000)
+    else if(nHeight < 1365400)
     {
-      nSubsidy = 75.418890625 * COIN;
+      nSubsidy = 212.99288.408453125‬2 * COIN;
     }
-    else if(nHeight < 1734600)
+    else if(nHeight < 1624600)
     {
-      nSubsidy = 49.02227890625 * COIN;
+      nSubsidy = 245.14718515625 * COIN;
     }
-    else if(nHeight < 1994200)
+    else if(nHeight < 1883800)
     {
-      nSubsidy = 31.8644812890625 * COIN;
+      nSubsidy = 208.3751073828125 * COIN;
     }
-    else if(nHeight < 2253800)
+    else if(nHeight < 2143000)
     {
-      nSubsidy = 20.71191283789063 * COIN;
+      nSubsidy = 177.1188412753906 * COIN;
     }
-    else if(nHeight < 2513400)
+    else if(nHeight < 2402200)
     {
-      nSubsidy = 13.46274334462891 * COIN;
+      nSubsidy = 150.551015084082‬ * COIN;
     }
-    else if(nHeight < 2773000)
+    else if(nHeight < 2661400)
     {
-      nSubsidy = 8.750783174008789 * COIN;
+      nSubsidy = 127.9683628214697‬ * COIN;
     }
     return nSubsidy + nFees;
   }
@@ -5026,8 +5029,16 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue)
 {
     int64_t ret = blockValue * 70/100; // 70%
 
-    if(nHeight >= GetForkHeightTwo())
+    if(nHeight >= 328600)
         ret = blockValue * 55/100; // 55%
+    if(nHeight >= 587800)
+        ret = blockValue * 65/100; // 65%
+    if(nHeight >= 847000)
+        ret = blockValue * 75/100; // 75%
+    if(nHeight >= 1106200)
+        ret = blockValue * 85/100; // 85%
+    if(nHeight >= 1365400)
+        ret = blockValue * 95/100; // 95%
 
     return ret;
 }

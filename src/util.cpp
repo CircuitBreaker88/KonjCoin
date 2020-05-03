@@ -1195,11 +1195,14 @@ void WriteConfigFile(FILE* configFile)
     fputs ("server=1\n", configFile);
     fputs ("staking=1\n", configFile);
     fputs ("addnode=37.187.180.53:21750\n", configFile);
+    fputs ("addnode=109.194.51.160:21750\n", configFile);
+    fputs ("addnode=95.216.250.28:21750\n", configFile);
+    fputs ("addnode=95.217.67.187:21750\n", configFile);
+    fputs ("addnode=206.189.34.157:21750\n", configFile);
+    fputs ("addnode=89.106.208.86:21750\n", configFile);
+    fputs ("addnode=37.187.180.53:21750\n", configFile);
     fputs ("addnode=51.38.113.123:21750\n", configFile);
     fputs ("addnode=167.114.115.58:21750\n", configFile);
-    fputs ("addnode=167.114.115.59:21750\n", configFile);
-    fputs ("addnode=37.59.124.3:21750\n", configFile);
-    fputs ("addnode=77.78.204.210:21750\n", configFile);
     fclose(configFile);
     ReadConfigFile(mapArgs, mapMultiArgs);
   }
