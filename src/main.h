@@ -85,7 +85,7 @@ static const unsigned char REJECT_INVALID = 0x10;
 /* IMPORTANT: fork one should never be before block 17 */
 /* Livenet hard forks */
 static const int nForkOne = 50;
-static const int nForkTwo = 75000000; // Not Used 
+static const int nForkTwo = 328600; // Not Used
 
 /* Testnet hard forks */
 static const int nTestnetForkOne = 100;
@@ -107,8 +107,24 @@ const int GetMaxTransactionSigOps();
 
 const int GetMaxOrphanTransactionSize();
 
+static const int DEFAULT_PRIVATESEND_AMOUNT         = 600000;
+static const int DEFAULT_PRIVATESEND_AMOUNT_NEW     = 2560000;
 
-inline int64_t GetMNCollateral(int nHeight) { return 600000; }
+inline int64_t GetMNCollateral(int nHeight) {
+  CAmount value;
+  if (nBestHeight < GetForkHeightTwo()){
+    return value == DEFAULT_PRIVATESEND_AMOUNT;
+
+} else {
+    if (value == DEFAULT_PRIVATESEND_AMOUNT) {
+        return true;
+    } else if (value == DEFAULT_PRIVATESEND_AMOUNT_NEW) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+}
 
 extern CScript COINBASE_FLAGS;
 extern CCriticalSection cs_main;

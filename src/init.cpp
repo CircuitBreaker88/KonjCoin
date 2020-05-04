@@ -301,7 +301,7 @@ strUsage += "\n" + _("Masternode options:") + "\n";
 
     strUsage += "\n" + _("InstantX options:") + "\n";
     strUsage += "  -enableinstantx=<n>    " + _("Enable instantx, show confirmations for locked transactions (bool, default: true)") + "\n";
-    strUsage += "  -instantxdepth=<n>     " + strprintf(_("Show N confirmations for a successfully locked transaction (0-9999, default: %u)"), nInstantXDepth) + "\n"; 
+    strUsage += "  -instantxdepth=<n>     " + strprintf(_("Show N confirmations for a successfully locked transaction (0-9999, default: %u)"), nInstantXDepth) + "\n";
     strUsage += _("Secure messaging options:") + "\n" +
         "  -nosmsg                                  " + _("Disable secure messaging.") + "\n" +
         "  -debugsmsg                               " + _("Log extra debug messages.") + "\n" +
@@ -482,7 +482,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         fServer = true;
     else
     	fServer = GetBoolArg("-server", false);
-    if (!fHaveGUI) 
+    if (!fHaveGUI)
        fServer = true;
     fPrintToConsole = GetBoolArg("-printtoconsole", false);
     fLogTimestamps = GetBoolArg("-logtimestamps", true);
@@ -566,7 +566,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     nMasternodeMinProtocol = GetArg("-masternodeminprotocol", GetMinPoolPeerProto());
 
     if (fDaemon)
-        fprintf(stdout, "Konjungate server starting\n"); 
+        fprintf(stdout, "Konjungate server starting\n");
 
     int64_t nStart;
 
@@ -699,7 +699,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         return InitError(strprintf("Total length of network version string %i exceeds maximum of %i characters. Reduce the number and/or size of uacomments.",
             strSubVersion.size(), MAX_SUBVERSION_LENGTH));
     }
-    
+
     if (mapArgs.count("-onlynet")) {
         std::set<enum Network> nets;
         BOOST_FOREACH(std::string snet, mapMultiArgs["-onlynet"]) {
@@ -998,7 +998,7 @@ bool AppInit2(boost::thread_group& threadGroup)
            addrman.size(), GetTimeMillis() - nStart);
 
     // ********************************************************* Step 10.1: startup secure messaging
-    
+
     SecureMsgStart(fNoSmsg, GetBoolArg("-smsgscanchain", false));
 
     // ********************************************************* Step 11: start node
@@ -1060,7 +1060,8 @@ bool AppInit2(boost::thread_group& threadGroup)
         activeMasternode.ManageStatus();
     }
 
-    if(GetBoolArg("-mnconflock", false)) {
+    if(GetBoolArg("-mnconflock", true) && pwalletMain) {
+        LOCK(pwalletMain->cs_wallet);
         LogPrintf("Locking Masternodes:\n");
         uint256 mnTxHash;
         BOOST_FOREACH(CMasternodeConfig::CMasternodeEntry mne, masternodeConfig.getEntries()) {
