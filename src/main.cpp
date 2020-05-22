@@ -1559,11 +1559,11 @@ int64_t GetProofOfStakeReward(int nHeight, int64_t nCoinAge, int64_t nFees)
     }
     else if(nHeight < 2402200)
     {
-      nSubsidy = 150.551015084082‬ * COIN;
+      nSubsidy = 150.551015084082 * COIN;
     }
     else if(nHeight < 2661400)
     {
-      nSubsidy = 127.9683628214697‬ * COIN;
+      nSubsidy = 127.9683628214697 * COIN;
     }
     return nSubsidy + nFees;
   }
