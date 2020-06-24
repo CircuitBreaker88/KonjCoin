@@ -1,36 +1,109 @@
-Konjungate Release Tree [![GitHub version](https://img.shields.io/badge/Version-1.2.0.0-brightgreen.svg)](https://github.com/konjungatecoin/konjungatecoin)
+# Konjungate Core v1.0.1
 
-Konjungate is a PoW (NeoScrypt) / PoS / Master Node hybrid cryptocurrency, with a 5 million coin maximum supply, which is generated at a slower rate every 1 Million IC, until it's limit is reached. Master Node cost 50,000 KONJ, block size is 20MB, and block time is ~2Minutes.
+Name: Konjungate<br/>
+Ticker: KONJ<br/>
+Type: Hybrid, POS / POW / Masternodes<br/>
+Algorithm: neoscrypt<br/>
+Total Coin Supply: 21 billion<br/>
+Block Reward: 1000 KONJ<br/>
 
-The block production is 50% PoW and 50% PoS, of which each PoS block is split between Masternode and Staker evenly.
+Reward Distribution:<br/>
+1000 KONJUNGATE / Block. shared as follows:<br/>
+POW: 250 KONJ (no charity fee taken from POW)<br/>
+POS: 195 KONJ<br/>
+MN: 455 KONJ<br/>
+Charity: 100 KON<br/>
 
-Block Spacing: 120 Seconds
+Block Time: 2 Min.<br/>
+Masternode Collateral: 600.000 KONJ<br/>
+Block Size: 1MB<br/>
+Premine: 409.000.000 KONJ for SWAP/Charity- and Developer Fund<br/>
 
-Maturity: 15 Blocks
+https://www.konjungate.net
 
-Stake Minimum Age: 30 Minutes
+## What is Konjungate?
+KONJUNGATE - The Artbased Blockchain To change the funding of Artists and Institutions. Based on the cyber novel MACHFELD by Michael Mastrototaro © 1999
 
-Default Main-Net Network Ports:
-Port: 21750
-RPC Port: 21751
+Konjungate will chance the funding of contemporary Art and Art-Institutions.
 
-Website: https://KonjungateCoin.org
+KONJUNGATE is based on the cyber novel MACHFELD written 1999 by Michael Mastrototaro. Strangely, the main character of the book is called Nakomoto and thus resembles the pseudonym of the BITCOIN inventor Satoshi Nakomoto. What a coincidence, right? Anyway. In his cyber novel, Michael Mastrototaro describes 9 years before Bitcoin appears on the cryptocurrency horizon the mining of KONJUNGATE. Now 20 years after publishing the novel online, KONJUNGATE appears as a Media Art project to decentralize the funding of international contemporary Artists and Institutions and to give a strong artistic statement in times of budget cuts.
 
-LiveNet Explorer: http://explorer.konjungatecoin.org/  -- https://blockchain.konjungatecoin.org
+How dose it work? During the creation of the KONJUNGATE Blockchain, 1,25% of the total digital assets was premined. This amount of Tokens will be used as an initial found for distributing the Token to a wide range of international Art-Institutions, to support contemporary Artists and as registered capital for the charitable MACHFELD-Foundation (in establishing) which will ensure further distribution of tokens in the future and its task is to ensure value security.
 
-Alternative (3rd party explorer): Chainz -- https://chainz.cryptoid.info/ic/
+The art installations The distribution of KONJUNGATE to international Art Institutions will be realized during several Media Art installations (created by the Austrian Media Art Entity MACHFELD (Sabine Maier and Michael Mastrototaro)). The media art object has a Masternode of KONJUNGATE inside. This Masternode will generate further KONJUNGATE Tokens during the time. The generated Tokens will be distributed 65% to the Masternode holder (i.e. Institutions) and to 35% to the Miners. (After 25% Charity Found for the Foundation.)
 
-BitcoinTalk Announcement: https://bitcointalk.org/index.php?topic=2612608.0
+People will be able to store, spend, exchange and later borrow practically any Cryptocurrency in the same way as any other currency, but in a quicker, cheaper and more secure way than it is possible now in any traditional bank. KONJ is a future of Art Founding System with limitless opportunities.
 
-White Paper: https://konjungatecoin.org/wp-content/uploads/2018/01/Konjungate-Coin-White-Paper.pdf
+## LINKS
 
-CoinMarketCap: https://coinmarketcap.com/currencies/konjungate/
+Official Website:<br/>
+https://www.konjungate.net/
 
-Exchanges IC is available on (as of 5/30/2018): CoinExchange, CryptoBridge, NovaExchange, BTCPOP, BiteBTC, SatoWallet Exchange, Wadax and CryptalDash Exchange
+Official Mining Pool:<br/>
+https://pool.konjungate.net/<br/>
+https://ahamay.net/
 
-For compiling on different architectures, see the docs/build-*os* documents. Otherwise, view releases page for windows qt-wallets.
+Block Explorer:
+http://discover.konjungate.net/<br/>
 
-****
-IC is dependent upon libsecp256k1 by sipa, the sources for which can be found here:
-https://github.com/bitcoin/secp256k1
-****
+Bitcoin Talk announcment:
+https://bitcointalk.org/index.php?topic=5148524.msg51263942#msg51263942<br/>
+
+---------------->>>-----<<<<<<---------------------
+
+(So called) Social Media Links:
+
+Telegram: https://t.me/joinchat/CZxxC03HTpvdGDWlXg0tgQ 
+
+Facebook: https://www.facebook.com/konjungate/ 
+
+Twitter: https://twitter.com/konjungate
+
+YouTube: https://www.youtube.com/channel/UCnm-eA9EGNwSHu3KKzkm8Zg
+
+---------------->>>-----<<<<<<---------------------
+
+EXCHANGES
+
+CREX24:
+https://crex24.com/exchange/KONJ-BTC<br/>
+https://crex24.com/exchange/KONJ-ETH
+
+Altmarkets:
+https://altmarkets.io/trading/konjbtc
+
+Ihost
+https://ihostmn.com/buysell.php?market=KONJBTC
+
+
+Zeon: 
+https://exchange.zeonhexalgo.fun/market/59 (KONJ/LTC)<br/>
+https://exchange.zeonhexalgo.fun/market/60 (KON/BTC)
+
+
+
+## License
+
+Konjungate Core is released under the terms of the MIT license. See COPYING for more information or see https://opensource.org/licenses/MIT.
+
+## Development Process
+
+The master branch is meant to be stable. Development is normally done in separate branches. Tags are created to indicate new official, stable release versions of Konjungate Core.
+
+The contribution workflow is described in CONTRIBUTING.md.
+
+## Testing
+
+Testing and code review is the bottleneck for development; we get more pull requests than we can review and test on short notice. Please be patient and help out by testing other people's pull requests, and remember this is a security-critical project where any mistake might cost people lots of money.
+
+## Automated Testing
+
+Developers are strongly encouraged to write unit tests for new code, and to submit new unit tests for old code. Unit tests can be compiled and run (assuming they weren't disabled in configure) with: make check
+
+There are also regression and integration tests of the RPC interface, written in Python, that are run automatically on the build server. These tests can be run (if the test dependencies are installed) with: qa/pull-tester/rpc-tests.py
+
+The Travis CI system makes sure that every pull request is built for Windows and Linux, OS X, and that unit and sanity tests are automatically run.
+
+## Manual Quality Assurance (QA) Testing
+
+Changes should be tested by somebody other than the developer who wrote the code. This is especially important for large or high-risk changes. It is useful to add a test plan to the pull request description if testing the changes is not straightforward.
